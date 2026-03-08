@@ -1,195 +1,199 @@
-# AI Graduate Advisor - Mobile App
+# 🎓 AI Graduate Advisor
 
-**Your 24/7 AI-powered academic advisor, built on real UTD course data**
+Your **24/7 AI-powered academic advisor** for UT Dallas students. Get personalized course recommendations, graduation timelines, and degree planning assistance powered by Google Gemini.
 
-HackAI 2026 Project | March 7-8, 2026 | UT Dallas
-
-## What It Does
-
-AI Graduate Advisor helps UTD students:
-- Track degree progress in real-time
-- Get personalized AI-powered academic advice
-- Simulate what-if scenarios (switching majors, adding minors)
-- Plan semester-by-semester course schedules
-- Identify missing requirements and prerequisites
-
-## Tech Stack
-
-- **Framework**: React Native with Expo
-- **AI**: Google Gemini 1.5 Flash API
-- **Data**: Nebula Labs API (real UTD course data)
-- **Platforms**: iOS, Android, Web
-- **Supported Majors**: Software Engineering, Neuroscience, Cybersecurity, Art
-
-## Setup Instructions
-
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. Add Gemini API Key (Optional for Demo)
-
-- Get free key: https://aistudio.google.com/app/apikey
-- Edit `api/gemini.js` and replace `YOUR_GEMINI_API_KEY_HERE`
-- Set `USE_DEMO = false` in `components/ChatAdvisor.js`
-
-### 3. Run the App
-
-**On Android:**
-```bash
-npm run android
-```
-
-**On iOS (Mac only):**
-```bash
-npm run ios
-```
-
-**On Web Browser:**
-```bash
-npm run web
-```
-
-**Using Expo Go App (Easiest for Testing):**
-1. Install Expo Go on your phone from App Store/Play Store
-2. Run `npm start`
-3. Scan the QR code with your phone camera
-4. App opens in Expo Go
-
-## Project Structure
-
-```
-graduate-advisor-mobile/
-├── api/
-│   ├── gemini.js       # Gemini API integration
-│   └── nebula.js       # Nebula Labs API integration
-├── components/
-│   ├── Login.js        # Onboarding/profile setup
-│   ├── Dashboard.js    # Main home screen
-│   ├── CourseList.js   # Course recommendations
-│   ├── ChatAdvisor.js  # AI chat interface
-│   ├── WhatIfSimulator.js # Major/minor simulator
-│   ├── DegreePlan.js   # Semester-by-semester plan
-│   └── Navigation.js   # Bottom tab navigation
-├── data/
-│   └── requirements.js # Degree requirements data
-├── App.js              # Main app entry point
-└── package.json
-```
-
-## Features
-
-### 1. Profile Setup
-- Enter name, major, minor, completed courses
-- Calculates graduation timeline automatically
-
-### 2. Dashboard
-- Progress bar showing credit completion
-- Estimated graduation date
-- Missing required courses alert
-- Quick action buttons
-
-### 3. Degree Plan
-- Semester-by-semester course breakdown
-- Prerequisite-aware scheduling
-- Visual progress indicators
-
-### 4. Course Recommendations
-- Shows courses ready to take (prerequisites met)
-- Highlights blocked courses (prerequisites needed)
-
-### 5. AI Chat Advisor
-- Powered by Google Gemini
-- Personalized responses based on student profile
-- Answers questions about courses, graduation, major changes
-
-### 6. What-If Simulator
-- Simulate major switches
-- Add/remove minors
-- Adjust credits per semester
-- See impact on graduation timeline
-
-## Demo Instructions
-
-### For Judges (3-5 minute demo):
-
-1. **Open the app** on your phone using Expo Go
-2. **Profile Setup**: Enter "Alex Johnson", select "Software Engineering", add 45 credits
-3. **Add Courses**: Add "CS 1336", "CS 1337", "MATH 2413"
-4. **Dashboard**: Show progress bar (36%), graduation estimate (Spring 2027)
-5. **AI Chat**: Ask "What should I take next semester?" - see personalized response
-6. **What-If**: Switch major to "Cybersecurity" - show it adds 1 semester
-7. **Degree Plan**: Show semester-by-semester breakdown
-
-## Prize Tracks
-
-- ✅ **General Track**: Best overall AI project
-- ✅ **Nebula Labs**: Using real UTD course data
-- ✅ **Dallas AI**: Personalized learning advisor
-- ✅ **MLH Gemini API**: AI-powered chat advisor
-- ✅ **Data Science/ML**: Course recommendation logic
-
-## API Keys
-
-- **Nebula API**: `AIzaSyB2zQIwK0gowd-Pkum4SHVzRVK7-PrwlUY` (included)
-- **Gemini API**: Add your own from https://aistudio.google.com/app/apikey
-
-## Building for Production
-
-### Android APK:
-```bash
-eas build --platform android --profile preview
-```
-
-### iOS (requires Apple Developer account):
-```bash
-eas build --platform ios --profile preview
-```
-
-## Troubleshooting
-
-**App won't start:**
-- Run `npm install` again
-- Clear cache: `expo start -c`
-
-**Picker not working:**
-- Make sure you ran `npm install` to get all dependencies
-
-**Can't scan QR code:**
-- Make sure phone and computer are on same WiFi
-- Try typing the URL manually in Expo Go
-
-## Team
-
-- **Bar**: Team Lead + AI Integration
-- **Teammate 2**: Frontend Developer
-- **Teammate 3**: Data + QA
-
-## License
-
-Built for HackAI 2026 at UT Dallas
+**Built for HackAI 2026** | UT Dallas Hackathon
 
 ---
 
-## Quick Start Commands
+## ✨ Features
+
+- 🤖 **AI Chat Advisor** - Ask anything about your degree, courses, or graduation timeline
+- 📋 **Degree Planning** - Semester-by-semester course breakdown with prerequisite tracking
+- 📊 **Progress Tracking** - Real-time graduation progress and credit calculations
+- 🔀 **What-If Simulator** - Explore major changes, minors, and course loads
+- 📱 **Cross-Platform** - Works on iOS, Android, and Web
+- 🏫 **Real UTD Data** - Accurate course requirements for 4 majors and 3 minors
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js installed
+- Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+### Setup (2 minutes)
 
 ```bash
-# Install everything
+# 1. Install dependencies
 npm install
 
-# Start development server
+# 2. Create .env file by copying the example
+cp .env.example .env
+
+# 3. Add your Gemini API key to .env
+# EXPO_PUBLIC_GEMINI_KEY=your-api-key-here
+
+# 4. Start the app
 npm start
-
-# Run on Android
-npm run android
-
-# Run on iOS (Mac only)
-npm run ios
-
-# Run in web browser
-npm run web
 ```
 
-**Scan QR code with Expo Go app to test on your phone!**
+### Run on Your Phone
+1. Download **Expo Go** (free app)
+2. Scan the QR code shown in terminal
+3. App loads instantly!
+
+---
+
+## 📁 Project Structure
+
+```
+├── api/
+│   ├── gemini.js          # Gemini AI API integration
+│   └── nebula.js          # UT Dallas course data
+├── components/
+│   ├── Login.js           # Onboarding & profile setup
+│   ├── Dashboard.js       # Home screen with progress
+│   ├── ChatAdvisor.js     # AI chat interface
+│   ├── CourseList.js      # Course recommendations
+│   ├── WhatIfSimulator.js # Major/minor scenarios
+│   ├── DegreePlan.js      # Semester schedule
+│   ├── Profile.js         # Student settings
+│   ├── TranscriptUpload.js# PDF transcript upload
+│   ├── Auth.js            # Authentication
+│   └── Navigation.js      # Tab navigation
+├── data/
+│   └── requirements.js    # Degree requirements
+├── App.js                 # Main entry point
+└── package.json
+```
+
+---
+
+## 🛠 Technology Stack
+
+- **Frontend**: React Native + Expo
+- **AI**: Google Gemini 1.5 Flash
+- **Data**: Real UTD course requirements
+- **File Upload**: expo-document-picker
+- **UI Components**: React Native built-in
+
+---
+
+## 🎯 Supported Majors & Minors
+
+**Majors:**
+- Software Engineering
+- Neuroscience
+- Cybersecurity
+- Art
+
+**Minors:**
+- Business
+- Data Science
+- Mathematics
+
+---
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+EXPO_PUBLIC_GEMINI_KEY=your-gemini-api-key-here
+```
+
+The API key is loaded from environment variables and **not** committed to git for security.
+
+---
+
+## 📱 Running the App
+
+### Development
+
+```bash
+# Start Expo dev server
+npm start
+
+# Then choose:
+# - Press i for iOS simulator
+# - Press a for Android emulator
+# - Scan QR code for Expo Go on phone
+# - Press w for web browser
+```
+
+### Production Build
+
+```bash
+# Build for Android
+eas build --platform android
+
+# Build for iOS (requires Apple Developer account)
+eas build --platform ios
+```
+
+---
+
+## 💡 Usage Examples
+
+### 1. Set Up Your Profile
+- Enter your name, major, and completed courses
+- App calculates your graduation timeline
+
+### 2. Ask the AI Advisor
+- "What courses should I take next semester?"
+- "When will I graduate?"
+- "What if I switch to Cybersecurity?"
+
+### 3. Upload Your Transcript  
+- Select your PDF transcript
+- Courses are automatically extracted
+
+### 4. Plan Your Semester
+- View recommended courses
+- See what's blocked by prerequisites
+- Get full degree plan
+
+---
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| App won't start | Run `npm install` again or `expo start -c` to clear cache |
+| can't scan QR code | Ensure phone and computer are on same WiFi networks |
+| API key not working | Verify key in `.env` and has Generative Language API enabled |
+| PDF upload fails | Ensure file is readable and device has file picker permissions |
+
+---
+
+## 📚 API Integration
+
+### Gemini API
+- Provides personalized AI responses
+- Fallback to demo responses if API unavailable
+- Respects rate limits and error handling
+
+### Nebula Labs
+- Real UT Dallas course data
+- Prerequisite tracking
+- Course information (credits, descriptions)
+
+---
+
+## 🤝 Contributing
+
+This project was built for HackAI 2026 at UT Dallas.
+
+---
+
+## 📄 License
+
+Built for HackAI 2026 | UT Dallas
+
+---
+
+**Happy planning! 🎓**
