@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView, KeyboardAvoidingView, Platform } from "react-native";
-import { askAdvisor, getDemoResponse } from "../api/gemini";
+import { askAdvisor, getDemoResponse, USE_DEMO_MODE } from "../api/gemini";
 
 const SUGGESTIONS = [
-  "What classes should I take next semester?",
+  "What courses should I take next semester?",
   "When will I graduate?",
-  "What happens if I add a minor?",
-  "What if I switch my major?",
+  "What requirements do I have left?",
+  "How would adding a minor affect my timeline?",
 ];
 
 export default function ChatAdvisor({ student, onNavigate }) {
@@ -29,9 +29,8 @@ export default function ChatAdvisor({ student, onNavigate }) {
     setMessages(prev => [...prev, { role: "user", text: q }]);
     setLoading(true);
     try {
-      const USE_DEMO = true;
       await new Promise(r => setTimeout(r, 800));
-      const reply = USE_DEMO ? getDemoResponse(q) : await askAdvisor(q, student);
+      const reply = USE_DEMO_MODE ? getDemoResponse(q, student) : await askAdvisor(q, student);
       setMessages(prev => [...prev, { role: "assistant", text: reply }]);
     } catch {
       setMessages(prev => [...prev, { role: "assistant", text: "Error — please try again." }]);
@@ -109,10 +108,12 @@ export default function ChatAdvisor({ student, onNavigate }) {
             placeholder="Ask your advisor anything..."
             value={input} onChangeText={setInput}
             onSubmitEditing={() => send()}
-            multiline />
-          <TouchableOpacity onPress={() => send()} disabled={loading || !input.trim()}
-            style={{ width: 44, height: 44, backgroundColor: loading ? "#90A4AE" : "#1A237E",
-              borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
+            returnKeyType="send"
+            blurOnSubmit={false}
+            multiline={false} />
+        <TouchableOpacity onPress={() => send()} disabled={loading || !input.trim()}
+          style={{ width: 44, height: 44, backgroundColor: (loading || !input.trim()) ? "#90A4AE" : "#1A237E",
+            borderRadius: 12, alignItems: "center", justifyContent: "center" }}>
             <Text style={{ color: "white", fontSize: 18 }}>➤</Text>
           </TouchableOpacity>
         </View>

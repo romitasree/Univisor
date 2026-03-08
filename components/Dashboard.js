@@ -67,15 +67,18 @@ export default function Dashboard({ student, onNavigate }) {
             { icon: "📋", title: "Courses", sub: "What to take next", screen: "courses" },
             { icon: "🤖", title: "AI Advisor", sub: "Ask anything", screen: "chat" },
             { icon: "🔀", title: "What-If", sub: "Simulate changes", screen: "whatif" },
+            { icon: "👤", title: "Profile", sub: "Update info", screen: "profile" },
+            { icon: "🔔", title: "Alerts", sub: "Notifications", screen: "notifications" },
+            { icon: "📄", title: "Transcript", sub: "Upload courses", screen: "transcript" },
           ].map(t => (
             <TouchableOpacity key={t.screen} onPress={() => onNavigate(t.screen)}
               style={{ backgroundColor: "white", borderRadius: 14, padding: 16,
-                borderWidth: 1.5, borderColor: "#E8EAF6", width: "48%" }}>
+                borderWidth: 1.5, borderColor: "#E8EAF6", width: "48%", marginBottom: 10 }}>
               <Text style={{ fontSize: 24, marginBottom: 6 }}>{t.icon}</Text>
               <Text style={{ fontSize: 13, fontWeight: "700", color: "#1A237E" }}>{t.title}</Text>
               <Text style={{ fontSize: 11, color: "#90A4AE" }}>{t.sub}</Text>
             </TouchableOpacity>
-          ))}
+          ))}}
         </View>
       </ScrollView>
     </SafeAreaView>
