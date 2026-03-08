@@ -183,17 +183,3 @@ eas build --platform ios
 - Course information (credits, descriptions)
 
 ---
-
-## 🤝 Contributing
-
-This project was built for HackAI 2026 at UT Dallas.
-
----
-
-## 📄 License
-
-Built for HackAI 2026 | UT Dallas
-
----
-
-**Happy planning! 🎓**
