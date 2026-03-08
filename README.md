@@ -1,4 +1,4 @@
-# 🎓 AI Graduate Advisor
+# 🎓 Univisor
 
 Your **24/7 AI-powered academic advisor** for UT Dallas students. Get personalized course recommendations, graduation timelines, and degree planning assistance powered by Google Gemini.
 
