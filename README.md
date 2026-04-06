@@ -39,7 +39,7 @@ cp .env.example .env
 npm start
 ```
 
-### Run on Your Phone
+### To run on Your Phone
 1. Download **Expo Go** (free app)
 2. Scan the QR code shown in terminal
 3. App loads instantly!
